@@ -13,6 +13,7 @@ export const HomeScreen: React.FC = () => {
         title="Go To HogeScreen" 
         onPress={() => navigation.navigate('Hoge')} 
       />
+      <View style={{margin: 10}}></View>
       <Button 
         title="Go To Tab" 
         onPress={() => navigation.navigate('Tab')} 
