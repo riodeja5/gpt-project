@@ -10,63 +10,40 @@ export const HomeScreen: React.FC = () => {
   return (
     <View style={styles.container}>
       <Button 
-        title="Go To HogeScreen" 
-        onPress={() => navigation.navigate('Hoge')} 
+        title="本日のおすすめメニュー" 
+        onPress={() => navigation.navigate('本日のおすすめメニュー')} 
       />
       <View style={{margin: 10}}></View>
       <Button 
-        title="Go To Tab" 
+        title="メニュー追加" 
         onPress={() => navigation.navigate('Tab')} 
       />
     </View>
   )
 }
 
-export const HogeScreen: React.FC = () => {
+export const RecommendScreen: React.FC = () => {
+  const main = ["エビフライ"];
+  const sub = ["エリンギと小松菜炒め"];
+  const soup = ["味噌汁"];
   return (
-    <View style={styles.container}>
-      <Text>HogeScreen</Text>
-    </View>
-  );
-};
-
-export const Tab1Screen: React.FC = () => {
-  const navigation = useNavigation<RootStackNavProp<'Tab'>>();
-
-  return (
-    <View style={styles.container}>
-      <Text>
-        TabNavigatorはRootNavigatorのScreenとしてネストしているので、Hogeスクリーンに遷移した時下のtabナビゲーションは表示されない。（TabNavigator → HogeScreenと遷移しているので全画面にHogeScreenが表示される）
-      </Text>
-      <Button 
-        title="Go to HogeScreen from TabNavigator"
-        onPress={() => navigation.navigate('Hoge')}
-      />
-    </View>
-  );
-};
-
-export const Tab2Screen: React.FC = () => {
-  return (
-    <View style={styles.container}>
-      <Text>Tab2Screen</Text>
-    </View>
-  );
-};
-
-export const Tab3Screen: React.FC = () => {
-  const navigation = useNavigation<NestStackNavProp<'Tab3'>>();
-
-  return (
-    <View style={styles.container}>
-      <Text>
-        TabNavigatorの下にNestNavigatorがネストされているので、Hogeスクリーンに遷移しても下のtabナビゲーションは表示されたまま。（NestNavigator → HogeScreenと遷移しているのでNestNavigatorの親であるTabNavigatorの中にHogeScreenが表示される）
-      </Text>
-      <Button 
-        title="Go to HogeScreen from NestNavigator"
-        
-        onPress={() => navigation.navigate('Hoge')}
-      />
+    <View style={styles.columnContainer}>
+      <View style={{margin: 10}}></View>
+      <View style={styles.rowContainer}>
+        <Text>主菜</Text>
+        <View style={{margin: 10}}></View>
+        <Text>{main[0]}</Text>
+      </View>
+      <View style={styles.rowContainer}>
+        <Text>副菜</Text>
+        <View style={{margin: 10}}></View>
+        <Text>{sub[0]}</Text>
+      </View>
+      <View style={styles.rowContainer}>
+        <Text>汁物</Text>
+        <View style={{margin: 10}}></View>
+        <Text>{soup[0]}</Text>
+      </View>
     </View>
   );
 };
