@@ -2,5 +2,8 @@
   "name": "cookingback",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^16.8.0"
+  }
 }
