@@ -1,7 +1,7 @@
 async function getData() {
     const data = JSON.stringify({
         query: `{
-            rollDice(numDice: 3, numSides:6)
+            cooking(menu: 3, numSides:6)
         }`,
     });
 
