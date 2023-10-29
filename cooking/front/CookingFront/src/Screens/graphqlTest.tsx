@@ -1,31 +1,32 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { Button, View, Text } from 'react-native';
-import styles from '../../style';
-import { NestStackNavProp, RootStackNavProp } from '../Navigations';
+import React, {useState, useEffect} from 'react';
+import { View, Text } from 'react-native';
+
 
 export const GraphqlTestScreen: React.FC = () => {
-  const main = ["エビフライ"];
-  const sub = ["エリンギと小松菜炒め"];
-  const soup = ["味噌汁"];
+  const [result, setResult] = useState(0);
+  const url = "http://127.0.0.1:3000";
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query: "{droid(id: \"2000\") {id,name,}}" })
+  };
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch(url, options);
+        const data = response.json();
+        setResult(await data);
+        return data;
+      } catch (e) {
+        return e;
+      }
+    }
+    getData();
+  }, []);
+
   return (
-    <View style={styles.columnContainer}>
-      <View style={{margin: 10}}></View>
-      <View style={styles.rowContainer}>
-        <Text>主菜</Text>
-        <View style={{margin: 10}}></View>
-        <Text>{main[0]}</Text>
-      </View>
-      <View style={styles.rowContainer}>
-        <Text>副菜</Text>
-        <View style={{margin: 10}}></View>
-        <Text>{sub[0]}</Text>
-      </View>
-      <View style={styles.rowContainer}>
-        <Text>汁物</Text>
-        <View style={{margin: 10}}></View>
-        <Text>{soup[0]}</Text>
-      </View>
-    </View>
-  );
+  <View>
+    <Text>{result}</Text>
+  </View>
+  )
 };
