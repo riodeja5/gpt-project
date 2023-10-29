@@ -3,11 +3,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator, NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { NavigationContainer } from '@react-navigation/native';
 import { HomeScreen, RecommendScreen } from '../Screens';
+import { GraphqlTestScreen } from '../Screens/graphqlTest';
 
 type RootStackParamList = {
   Home: undefined;
   本日のおすすめメニュー: undefined;
   Tab: undefined;
+  Graphqlテスト: undefined;
 }
 export type RootStackNavProp<T extends keyof RootStackParamList> = NativeStackNavigationProp<RootStackParamList, T>
 
@@ -38,6 +40,10 @@ export const RootNavigator: React.FC = () => {
         <HomeStack.Screen
           name="本日のおすすめメニュー"
           component={RecommendScreen}
+        />
+        <HomeStack.Screen
+          name="Graphqlテスト"
+          component={GraphqlTestScreen}
         />
       </HomeStack.Navigator>
     </NavigationContainer>

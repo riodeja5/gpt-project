@@ -4,30 +4,7 @@ import { Button, View, Text } from 'react-native';
 import styles from '../../style';
 import { NestStackNavProp, RootStackNavProp } from '../Navigations';
 
-export const HomeScreen: React.FC = () => {
-  const navigation = useNavigation<RootStackNavProp<'Home'>>();
-
-  return (
-    <View style={styles.container}>
-      <Button 
-        title="本日のおすすめメニュー" 
-        onPress={() => navigation.navigate('本日のおすすめメニュー')} 
-      />
-      <View style={{margin: 10}}></View>
-      <Button 
-        title="メニュー追加" 
-        onPress={() => navigation.navigate('Tab')} 
-      />
-      <View style={{margin: 10}}></View>
-      <Button 
-        title="Graphqlテスト" 
-        onPress={() => navigation.navigate('Graphqlテスト')} 
-      />
-    </View>
-  )
-}
-
-export const RecommendScreen: React.FC = () => {
+export const GraphqlTestScreen: React.FC = () => {
   const main = ["エビフライ"];
   const sub = ["エリンギと小松菜炒め"];
   const soup = ["味噌汁"];
